@@ -8,21 +8,21 @@ body {
     width: 375px;
     height: 645px;
     border-radius: 30px;
-    margin-top: 35px;
+    margin-top: 30px;
     background-color: #18212a;
     border: 13px solid #1c2129;
 }
 
 .display {
+    display: flex;
+    flex-direction: column;
     height: 225px;
     border-radius: 30px;
     background-color: #3b4f63;
-    display: flex;
     font-family: 'roboto', sans-serif;
     font-size: 25px;
     font-weight: 500;
     color: #ffffff;
-    justify-content: space-around;
 }
 
 .calc {
@@ -31,8 +31,8 @@ body {
 }
 
 .result {
-    align-self: center;
-    margin-right: 23px;
+    align-self: end;
+    margin: auto 23px auto 0;
 }
 
 button,
