@@ -25,9 +25,6 @@ function operation(a, b, op) {
     if (operator === '-') return subtract(a,b)
     if (operator === '*') return multiply(a, b)
     if (operator === '/') return divide(a, b)
-
-    operator !== '+' || operator !== '-' || 
-    operator !== '*' || operator !== '/' ? console.log('Not an operator') : null
 }
 
 const results = document.querySelector('.result')
@@ -55,8 +52,8 @@ operators.forEach(op => op.addEventListener('click', function(){
 const equals = document.querySelector('.equals')
 equals.addEventListener('click', function(){
     let arr = displayNumb.split(operator)
-    numA = parseInt(arr[0])
-    numB = parseInt(arr[1])
+    numA = +arr[0]
+    numB = +arr[1]
     displayNumb = operation(numA, numB, operator)
     displayNumb = displayNumb.toString()
     results.textContent = displayNumb;
