@@ -33,6 +33,7 @@ body {
 .result {
     align-self: end;
     margin: auto 23px auto 0;
+    font-size: 36px;
 }
 
 button,
