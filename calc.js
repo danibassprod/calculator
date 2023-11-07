@@ -21,11 +21,13 @@ let operation = '';
 let displayNumb = '';
 
 function operate(a, b, op) {
+    if (a === 0 && b === 0) return '???'
     if (op === '') return 'ERROR'
     if (op === '+') return sum(a, b)
     if (op === '-') return subtract(a, b)
     if (op === '*') return multiply(a, b)
     if (op === '/') return divide(a, b)
+    operator = ''
 }
 
 const display = document.querySelector('.result');
@@ -49,11 +51,50 @@ operators.forEach(op => op.addEventListener('click', function(){
 const equals = document.querySelector('.equals')
 equals.addEventListener('click', getResult)
 
-function getResult(){
-    let arr = operation.split(operator)
-    numA = +arr[0]
-    numB = +arr[1]
-    let finalResult = operate(numA, numB, operator)
-    operation = finalResult;
-    display.textContent = finalResult.toString()
+function removeOperation(){
+    numA = undefined;
+    numB = undefined;
+    displayNumb = '';
+    operator = '';
+    operation = '';
+    display.textContent = ''
 }
+
+function getResult(){
+    let arr = operation.split(operator);
+    numA = +arr[0];
+    numB = +arr[1];
+    let finalResult = operate(numA, numB, operator);
+    if (finalResult === '???') {
+        removeOperation()
+        display.textContent = finalResult;
+    } else {
+        operation = parseFloat(finalResult.toFixed(2)).toString();
+        displayNumb = operation;
+        display.textContent = operation;
+        operator = '';
+        numA = undefined;
+        numB = undefined;
+    }
+}
+
+const AC = document.querySelector('.ac')
+AC.addEventListener('click', removeOperation)
+
+const DEL = document.querySelector('.del')
+DEL.addEventListener('click', function(){
+    if (display.textContent === '') {
+        return
+    } else if (numA !== undefined || numB !== undefined || 
+        displayNumb !== ''){
+
+        let arr = operation.split('')
+        arr.pop()
+        operation = arr.join('');
+
+        let arrDisplay = display.textContent.split('');
+        arrDisplay.pop()
+        display.textContent = arrDisplay.join('')
+        displayNumb = display.textContent;
+    }
+})
