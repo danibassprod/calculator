@@ -73,8 +73,8 @@ function getResult(){
         displayNumb = operation;
         display.textContent = operation;
         operator = '';
-        numA = undefined;
-        numB = undefined;
+        numA = null;
+        numB = null;
     }
 }
 
