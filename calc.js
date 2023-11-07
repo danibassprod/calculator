@@ -35,6 +35,9 @@ display.textContent = displayNumb;
 
 const numbers = document.querySelectorAll('#number');
 numbers.forEach(num => num.addEventListener('click', function(){
+    if (this.textContent === '.' && displayNumb.includes('.')) {
+        return
+    }
     operation += this.textContent;
     displayNumb += this.textContent; 
     display.textContent = displayNumb;
