@@ -58,6 +58,18 @@ button,
     background-color: rgb(201, 201, 201);
 }
 
+button.ac:hover {
+    background-color: #de2e2c;
+}
+
+button.del:hover {
+    background-color: #1decff;
+}
+
+button.equals:hover {
+    background-color: #00d500;
+}
+
 .button,
 .top-btn {
     font-family: 'roboto', sans-serif;
@@ -86,9 +98,17 @@ button,
     background-color: #adf8ff;
 }
 
+.equals {
+    background-color: #31e431;
+}
+
 #operators {
     display: flex;
     flex-direction: column;
+}
+
+.mult.button {
+    padding-top: 8px;
 }
 
 .dot.button {
@@ -112,5 +132,5 @@ button,
 
 
 .op {
-    flex: 1;
+    flex: 0 0 100px;
 }
